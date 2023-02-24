@@ -37,7 +37,7 @@ abstract class PI1Game extends Game
         final Walker walker1 = new Walker(new GameObject(1, 0, 2, "claudius"), 3, 2);
         final Walker walker2 = new Walker(new GameObject(0, 1, 0, "laila"), 3, 0);
         final Walker walker3 = new Walker(new GameObject(3, 2, 2, "child"), 4, 1);
-        final GameObject player = new GameObject(0, 3, 0, "woman");
+        final GameObject player = new GameObject(0, 3, 0, "woman");  // player is who we controlled.
 
         while (player.isVisible()) {
             final int key = getNextKey();

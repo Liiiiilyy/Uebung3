@@ -23,16 +23,16 @@ class Walker
     void act(final GameObject player)
     {
         // Vorwärts bewegen
-        if (avatar.getRotation() == 0) {
+        if (avatar.getRotation() == 0) {    //向+x方向走
             avatar.setLocation(avatar.getX() + 1, avatar.getY());
         }
-        else if (avatar.getRotation() == 1) {
+        else if (avatar.getRotation() == 1) {       //向-x方向
             avatar.setLocation(avatar.getX(), avatar.getY() + 1);
         }
-        else if (avatar.getRotation() == 2) {
+        else if (avatar.getRotation() == 2) {          // +y
             avatar.setLocation(avatar.getX() - 1, avatar.getY());
         }
-        else {
+        else {                                         //-y
             avatar.setLocation(avatar.getX(), avatar.getY() - 1);
         }
 
@@ -43,14 +43,15 @@ class Walker
         stepsSoFar = stepsSoFar + 1;
 
         // Wenn maximale Anzahl erreicht, umdrehen und Zählung neu beginnen
-        if (stepsSoFar == maxSteps) {
+        if (stepsSoFar == maxSteps) {               // 走到头啦，转个身
             avatar.setRotation(avatar.getRotation() + 2);
-            stepsSoFar = 0;
+            stepsSoFar = 0;         //一切从头开始
         }
 
         // Wenn gleiche Position wie Spielfigur, lasse diese verschwinden
+        //
         if (avatar.getX() == player.getX() && avatar.getY() == player.getY()) {
-            player.setVisible(false);
+            player.setVisible(false);      // 回到主类Pl1Game后会跳出while循环
             avatar.playSound("go-away");
         }
     }
